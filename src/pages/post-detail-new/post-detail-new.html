@@ -1,0 +1,49 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ "NEW POST" | translate }}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding class="post-detail">
+
+<form #detailForm="ngForm" novalidate>
+
+	<ion-item>
+		<ion-icon name="flame" item-left></ion-icon>
+		<ion-label stacked color="primary">{{ "TITLE" | translate }}</ion-label>
+		<ion-input [(ngModel)]="post.title" name="title" #title="ngModel" type="text"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-icon name="paper" item-left></ion-icon>
+		<ion-label stacked color="primary">{{ "CONTENT" | translate }}</ion-label>
+		<ion-textarea [(ngModel)]="post.content" name="content" #content="ngModel" type="text"></ion-textarea>
+	</ion-item>
+		
+	<br>
+	
+	<img (click)="presentActionSheet()" src="data:image/jpeg;base64,{{base64Image}}" style="width: 100%"  *ngIf="base64Image">
+	
+	<ion-row responsive-sm  *ngIf="!base64Image">
+		<ion-col>
+			<button ion-button icon-left (click)="presentActionSheet()" block>
+				<ion-icon name="camera"></ion-icon>
+				{{ "PLEASE SELECT AN IMAGE" | translate }}
+			</button>
+		</ion-col>
+	</ion-row>
+
+	<ion-row responsive-sm>
+		<ion-col>
+			<button ion-button icon-left (click)="saveDetail(detailForm)" type="submit" block>
+				<ion-icon name="cloud-upload"></ion-icon>
+				{{ "SAVE" | translate }}
+			</button>
+		</ion-col>
+		<ion-col>
+			<button ion-button color="light" (click)="cancelDetail()" block>{{ "CANCEL" | translate }}</button>
+		</ion-col>
+	</ion-row>
+</form>
+
+</ion-content>

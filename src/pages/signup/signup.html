@@ -1,0 +1,78 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>{{ "SIGNUP" | translate }}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+	<form #signupForm="ngForm" novalidate>
+		<ion-list no-lines>
+			<ion-item>
+				  <ion-icon name="mail" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "EMAIL" | translate }}</ion-label>
+				<ion-input pattern="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$" [(ngModel)]="account.email" name="email" type="text" #email="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+				{{ "EMAIL" | translate }} {{ "IS REQUIRED" | translate }}
+			</p>
+
+			<ion-item>
+				<ion-icon name="lock" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "PASSWORD" | translate }}</ion-label>
+				<ion-input pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$" [(ngModel)]="account.password" name="password" type="password" #password="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+				{{ "PASSWORD" | translate }} {{ "IS REQUIRED" | translate }} {{ "PASSWORD PATTERN" | translate }}
+			</p>
+			
+			<ion-item>
+				<ion-icon name="globe" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "OPERATOR" | translate }}</ion-label>
+				<ion-select [(ngModel)]="account.operator" name="operator" #operator="ngModel" required>
+				    <ion-option *ngFor="let item of operators" [value]="item.id">{{item.name}}</ion-option>
+				</ion-select>
+			</ion-item>
+			<p ion-text [hidden]="operator.valid || submitted == false" color="danger" padding-left>
+				{{ "OPERATOR" | translate }} {{ "IS REQUIRED" | translate }}
+			</p>
+			
+			<ion-item>
+			  	<ion-icon name="contact" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "FIRSTNAME" | translate }}</ion-label>
+				<ion-input [(ngModel)]="account.firstName" name="firstName" type="text" #firstName="ngModel">
+				</ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-icon name="contacts" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "LASTNAME" | translate }}</ion-label>
+				<ion-input [(ngModel)]="account.lastName" name="lastName" type="text" #lastName="ngModel">
+				</ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-icon name="call" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "PHONE" | translate }}</ion-label>
+				<ion-input [(ngModel)]="account.phone" name="phone" type="text" #phone="ngModel">
+				</ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-icon name="home" item-left></ion-icon>
+				<ion-label stacked color="primary">{{ "ADDRESS" | translate }}</ion-label>
+				<ion-input [(ngModel)]="account.address" name="address" type="text" #address="ngModel">
+				</ion-input>
+			</ion-item>
+		</ion-list>
+
+		<div padding>
+			<button ion-button (click)="onSignup(signupForm)" type="submit" block>{{ "CREATE ACCOUNT" | translate }}</button>
+		</div>
+	</form>
+
+</ion-content>

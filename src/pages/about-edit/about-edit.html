@@ -1,0 +1,58 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ "ABOUT" | translate }}: {{operator.name}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding class="about">
+
+<form #detailForm="ngForm" novalidate>
+
+	<ion-item>
+		<ion-icon name="globe" item-left></ion-icon>
+		<ion-label stacked color="primary">{{ "NAME" | translate }}</ion-label>
+		<ion-input [(ngModel)]="operator.name" name="name" #name="ngModel" type="text" required></ion-input>
+	</ion-item>
+	
+	<ion-item>
+		<ion-icon name="mail" item-left></ion-icon>
+		<ion-label stacked color="primary">{{ "E-MAIL" | translate }}</ion-label>
+		<ion-input pattern="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$" [(ngModel)]="operator.email" name="email" #email="ngModel" type="text" required></ion-input>
+	</ion-item>
+	<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+		{{ "EMAIL" | translate }} {{ "IS REQUIRED" | translate }}
+	</p>
+
+	<ion-item>
+		<ion-icon name="paper" item-left></ion-icon>
+		<ion-label stacked color="primary">{{ "CONTENT" | translate }}</ion-label>
+		<ion-textarea [(ngModel)]="operator.description" name="description" #description="ngModel" type="text"></ion-textarea>
+	</ion-item>
+		
+	<br>
+	
+	<img (click)="presentActionSheet()" src="data:image/jpeg;base64,{{image.file}}" style="width: 100%"  *ngIf="image && image.file">
+	
+	<ion-row responsive-sm  *ngIf="!(image && image.file)">
+		<ion-col>
+			<button ion-button icon-left (click)="presentActionSheet()" block>
+				<ion-icon name="camera"></ion-icon>
+				{{ "PLEASE SELECT AN IMAGE" | translate }}
+			</button>
+		</ion-col>
+	</ion-row>
+
+	<ion-row responsive-sm>
+		<ion-col>
+			<button ion-button icon-left (click)="saveDetail(detailForm)" type="submit" block>
+				<ion-icon name="cloud-upload"></ion-icon>
+				{{ "SAVE" | translate }}
+			</button>
+		</ion-col>
+		<ion-col>
+			<button ion-button color="light" (click)="cancelDetail()" block>{{ "CANCEL" | translate }}</button>
+		</ion-col>
+	</ion-row>
+</form>
+
+</ion-content>

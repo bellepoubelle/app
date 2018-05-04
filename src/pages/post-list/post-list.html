@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "POSTS" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content post-list">
+<ion-grid>
+<ion-row>
+	<ion-col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 *ngFor="let post of posts">
+  <ion-card class="post-card">
+	<button ion-item detail-none (click)="goToPostDetail({id: post.id})">
+	<ion-card-title>
+        <h1>{{post.title}}</h1>
+    </ion-card-title>
+	<ion-card-content>
+		{{ post.content | slice:0:250 }}{{ post.content.length > 250 ? '...' : '' }}
+	</ion-card-content>
+    </button>
+    <ion-row no-padding>
+      <ion-col text-left>
+        <button ion-button clear small color="primary" icon-left (click)="goToPostDetail({id: post.id})">
+          <ion-icon name='arrow-forward'></ion-icon>
+         {{ "READ" | translate }}
+        </button>
+        <button ion-button clear small color="primary" icon-left (click)="goToPostEdit({id: post.id})" *ngIf="account.role === 'manager' || account.role === 'admin'">
+          <ion-icon name='settings'></ion-icon>
+         {{ "EDIT" | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+  <ion-fab right bottom *ngIf="account.role === 'manager' || account.role === 'admin'">
+    <button ion-fab color="dark" (click)="goToPostNew()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  
+</ion-content>

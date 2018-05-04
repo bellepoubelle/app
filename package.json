@@ -1,0 +1,112 @@
+{
+	"name": "bellepoubelle-app",
+	"version": "1.0.0",
+	"description": "BellePoubelle App",
+	"author": "DEBAB Amina, GARBOUT Hayfa, HAKEM Imene, HECHT Jürgen, MEZIDI Fatima-Ezzahra, NDIAYE Ndèye Gagnessiry, PU Jiaye",
+	"homepage": "https://bellepoubelle.fr/",
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/juergenhecht/bellepoubelle-app.git"
+	},
+	"scripts": {
+		"build": "ionic build",
+		"serve": "ionic build",
+		"start": "npm run serve"
+	},
+	"dependencies": {
+		"@angular/common": "5.0.0",
+		"@angular/compiler": "5.0.0",
+		"@angular/compiler-cli": "5.0.0",
+		"@angular/core": "5.0.0",
+		"@angular/forms": "5.0.0",
+		"@angular/http": "5.0.0",
+		"@angular/platform-browser": "5.0.0",
+		"@angular/platform-browser-dynamic": "5.0.0",
+		"@ionic-native/camera": "^4.3.1",
+		"@ionic-native/core": "^4.3.1",
+		"@ionic-native/file": "^4.3.1",
+		"@ionic-native/file-path": "^4.3.1",
+		"@ionic-native/geolocation": "^4.7.0",
+		"@ionic-native/http": "^4.3.1",
+		"@ionic-native/in-app-browser": "^4.3.1",
+		"@ionic-native/push": "^4.3.1",
+		"@ionic-native/qr-scanner": "^4.7.0",
+		"@ionic-native/splash-screen": "^4.3.1",
+		"@ionic-native/status-bar": "^4.3.1",
+		"@ionic-native/transfer": "^3.14.0",
+		"@ionic/storage": "^2.1.3",
+		"@ngx-translate/core": "^9.1.1",
+		"@ngx-translate/http-loader": "^0.1.0",
+		"@types/leaflet": "^1.2.7",
+		"angular2-swing": "^0.12.1",
+		"color-convert": "^1.9.0",
+		"cordova-android": "^6.4.0",
+		"cordova-browser": "^5.0.3",
+		"cordova-plugin-camera": "^2.4.1",
+		"cordova-plugin-compat": "^1.2.0",
+		"cordova-plugin-console": "^1.1.0",
+		"cordova-plugin-crosswalk-webview": "^2.4.0",
+		"cordova-plugin-device": "^1.1.7",
+		"cordova-plugin-geolocation": "^4.0.1",
+		"cordova-plugin-inappbrowser": "^1.7.2",
+		"cordova-plugin-ionic-keyboard": "^2.0.5",
+		"cordova-plugin-ionic-webview": "^1.2.1",
+		"cordova-plugin-qrscanner": "^2.5.0",
+		"cordova-plugin-splashscreen": "^4.1.0",
+		"cordova-plugin-statusbar": "^2.4.2",
+		"cordova-plugin-whitelist": "^1.3.3",
+		"cordova-sqlite-storage": "^2.3.1",
+		"ionic-angular": "3.9.2",
+		"ionic-plugin-keyboard": "^2.2.1",
+		"ionicons": "3.0.0",
+		"leaflet": "^1.3.1",
+		"leaflet-routing-machine": "^3.2.8",
+		"ng-circle-progress": "^1.0.0",
+		"ng2-charts": "^1.6.0",
+		"node-sass": "^4.5.3",
+		"phonegap-plugin-push": "^1.11.1",
+		"rxjs": "5.5.2",
+		"sw-toolbox": "3.6.0",
+		"web": "0.0.2",
+		"zone.js": "0.8.18"
+	},
+	"devDependencies": {
+		"@ionic/app-scripts": "3.1.5",
+		"typescript": "~2.4.2"
+	},
+	"config": {
+		"ionic_aot_write_to_disk": true
+	},
+	"cordova": {
+		"plugins": {
+			"cordova-plugin-crosswalk-webview": {
+				"XWALK_VERSION": "22+",
+				"XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+				"XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+				"XWALK_MODE": "embedded",
+				"XWALK_MULTIPLEAPK": "true"
+			},
+			"cordova-plugin-device": {},
+			"cordova-plugin-inappbrowser": {},
+			"cordova-plugin-splashscreen": {},
+			"cordova-plugin-statusbar": {},
+			"cordova-plugin-whitelist": {},
+			"ionic-plugin-keyboard": {},
+			"cordova-sqlite-storage": {},
+			"cordova-plugin-camera": {},
+			"phonegap-plugin-push": {
+				"SENDER_ID": "85075801930"
+			},
+			"cordova-plugin-ionic-keyboard": {},
+			"cordova-plugin-ionic-webview": {},
+			"cordova-plugin-geolocation": {},
+			"cordova-plugin-console": {},
+			"cordova-plugin-qrscanner": {}
+		},
+		"platforms": [
+			"android",
+			"browser"
+		]
+	}
+}

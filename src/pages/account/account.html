@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "ACCOUNT" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <div padding-top text-center *ngIf="account">
+  	<img (click)="presentActionSheet()" src="data:image/jpeg;base64,{{image.file}}" *ngIf="image.file">
+  	<h4 (click)="presentActionSheet()"><ion-icon name="cloud-upload" item-left></ion-icon> {{ "CHANGE PROFILE PICTURE" | translate }}</h4>
+  	
+    
+    <ion-list inset>
+        <ion-item >
+        <h1>{{ "WELCOME" | translate }}, {{account.firstName}} {{account.lastName}}</h1>
+        </ion-item >      
+		<ion-item>
+			<ion-icon name="call" item-left></ion-icon>
+			<h2>{{account.phone}}</h2>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="mail" item-left></ion-icon>
+			<h2>{{account.email}}</h2>
+		</ion-item>
+		<ion-item>
+			  <ion-icon name="home" item-left></ion-icon>
+			<h2>{{account.address}}</h2>
+		</ion-item>
+	</ion-list>
+	
+	<ion-list inset>
+		<ion-item>
+			  <ion-icon name="globe" item-left></ion-icon>
+			<h2>{{operator.name}}</h2>
+		</ion-item>
+		<ion-item *ngIf="account.role != 'regUser'">
+			  <ion-icon name="person" item-left></ion-icon>
+			<h2>{{role}}</h2>
+		</ion-item>
+	</ion-list>
+
+    <ion-list inset>
+      <button ion-item (click)="goToAccountEdit()"><ion-icon name="create" item-left></ion-icon> {{ "EDIT PROFILE" | translate }}</button>
+      <button ion-item (click)="goToAccountPassword()"><ion-icon name="lock" item-left></ion-icon> {{ "CHANGE PASSWORD" | translate }}</button>
+      <button ion-item (click)="logout()"><ion-icon name="log-out" item-left></ion-icon>{{ "LOGOUT" | translate }}</button>
+    </ion-list>
+  </div>
+  
+  <ion-fab right bottom>
+    <button ion-fab color="dark" (click)="goToAccountEdit()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+  
+</ion-content>

@@ -1,0 +1,25 @@
+
+page-post-list {
+
+  .scroll-content {
+    background: #EDEDED;
+  }
+
+  .post-card ion-card-header .item, .card-md p {
+    padding: 4px 16px;
+  }
+
+  .post-card ion-card-header,
+  .post-card ion-card-content,
+  .post-card ion-card-content .list ion-item-content, {
+    padding: 0;
+  }
+
+  @media (min-width: 600px) {
+    .post-card {
+      width: 95%;
+      margin: 10px auto;
+    }
+  }
+
+}

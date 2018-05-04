@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "VOTING" | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+<div swing-stack #swing [stackConfig]="stackConfig" (throwoutleft)="confirm(false)" (throwoutright)="confirm(true)" id="card-stack">
+    <ion-card #alertVotings swing-card *ngIf="alert != null && alert.image != null && alertImage != null">
+      <ion-item *ngIf="alert.poubelle" style="background-color: transparent">
+        <ion-avatar item-left>
+          <img *ngIf="poubelle && poubelle.category" src="assets/img/categories/{{poubelle.category}}.svg" style="pointer-events: none;">
+        </ion-avatar>
+        <h1 style="font-size: 40px;">{{ alert.poubelle }}</h1>
+      </ion-item>
+ 
+      <ion-card-content *ngIf="alert">
+        <img *ngIf="alertImage && alertImage.file" src="data:image/jpeg;base64,{{alertImage.file}}" style="pointer-events: none;">
+      </ion-card-content>
+ 
+      <ion-row *ngIf="alert">
+        <ion-col>
+          <button ion-button clear full icon-left color="danger" (click)="confirm(false)">
+            <ion-icon name="thumbs-down"></ion-icon>
+            {{ "TERRIBLE" | translate }}
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button clear full icon-left color="secondary" (click)="confirm(true)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            {{ "BELLE POUBELLE" | translate }}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>

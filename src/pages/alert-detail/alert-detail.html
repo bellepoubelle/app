@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{alert.poubelle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content post-detail">
+<ion-grid>
+<ion-row>
+<ion-col>
+  <ion-card class="post-card" padding>
+	<img src="data:image/jpeg;base64,{{image.file}}" *ngIf="image != null && image.file != null"  style="pointer-events: none;" padding/>
+	<ion-card-title padding>
+        <h1 style="font-size: 32px;">{{alert.poubelle}}</h1>
+    </ion-card-title>
+	<ion-card-content padding style="white-space: pre-wrap;">
+		{{ alert.message }}
+	</ion-card-content>
+  </ion-card>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+
+</ion-content>

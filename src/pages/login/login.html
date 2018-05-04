@@ -1,0 +1,46 @@
+<ion-header> <ion-navbar no-border-bottom>
+<button ion-button menuToggle>
+	<ion-icon name="menu"></ion-icon>
+</button>
+<ion-title>{{ "LOGIN" | translate }}</ion-title> </ion-navbar> </ion-header>
+
+<ion-content>
+<div class="logo">
+	<img src="assets/img/app.png">
+	<h1>{{ "APP TITLE" | translate }}</h1>
+	<h4>{{ "APP DESCRIPTION" | translate }}</h4>
+	<br />
+	<button (click)="translate.use('en')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/en.svg"></ion-img></button>
+	<button (click)="translate.use('de')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/de.svg"></ion-img></button>
+	<button (click)="translate.use('fr')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/fr.svg"></ion-img></button>
+	<button (click)="translate.use('es')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/es.svg"></ion-img></button>
+	<button (click)="translate.use('it')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/it.svg"></ion-img></button>
+	<button (click)="translate.use('ar')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/ar.svg"></ion-img></button>
+	<button (click)="translate.use('cn')" style="background: none;"><ion-img width="50" height="50" style="background: none; margin: 1px;" src="assets/img/lang/cn.svg"></ion-img></button>
+</div>
+
+<form #loginForm="ngForm" novalidate>
+	<ion-list no-lines> <ion-item><ion-icon name="mail" item-left></ion-icon><ion-label stacked
+		color="primary">{{ "EMAIL" | translate }}</ion-label> <ion-input pattern="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$" [(ngModel)]="account.email"
+		name="email" type="text" #email="ngModel" spellcheck="false"
+		autocapitalize="off" required> </ion-input> </ion-item>
+	<p ion-text [hidden]="email.valid || submitted == false" color="danger"
+		padding-left>{{ "EMAIL" | translate }} {{ "IS REQUIRED" | translate }}</p>
+
+	<ion-item><ion-icon name="lock" item-left></ion-icon><ion-label stacked color="primary">{{ "PASSWORD" | translate }}</ion-label>
+	<ion-input pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$" [(ngModel)]="account.password" name="password" type="password"
+		#password="ngModel" required> </ion-input> </ion-item>
+	<p ion-text [hidden]="password.valid || submitted == false" color="danger"
+		padding-left>{{ "PASSWORD" | translate }} {{ "IS REQUIRED" | translate }} {{ "PASSWORD PATTERN" | translate }}</p>
+	</ion-list>
+
+	<div padding>
+	<ion-row responsive-sm> <ion-col>
+	<button ion-button (click)="onLogin(loginForm)" type="submit" block>{{ "LOGIN" | translate }}</button>
+	</ion-col> <ion-col>
+	<button ion-button (click)="onSignup()" color="light" block>{{ "SIGNUP" | translate }}</button>
+	</ion-col> </ion-row>
+	</div>
+</form>
+
+</ion-content>
